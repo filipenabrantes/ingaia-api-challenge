@@ -5,6 +5,7 @@ import {
   HttpStatus,
   Query,
 } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
 import { PropertyService } from './property.service';
 
 @Controller()
@@ -12,6 +13,7 @@ export class PropertyController {
   constructor(private readonly propertyService: PropertyService) {}
 
   @Get()
+  @ApiQuery({ name: 'meters', type: Number })
   async getPropertyValue(@Query() data: any) {
     if (isNaN(data.meters) || data.meters < 10 || data.meters > 10000)
       throw new HttpException(
