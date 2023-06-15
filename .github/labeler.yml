@@ -1,2 +1,5 @@
-teste: src/main.ts
-property: src/property/**
+version: 1
+labels:
+- label: "WIP"
+  title: "^WIP:.*"
+  mergeable: false
