@@ -17,7 +17,7 @@ export class PropertyController {
   async getPropertyValue(@Query() data: any) {
     if (isNaN(data.meters) || data.meters < 10 || data.meters > 10000)
       throw new HttpException(
-        'Digite apenas números na metragem, entre 10 e 10.000m2',
+        'Digite apenas números na metragem, entre 10 e 10.000m2.',
         HttpStatus.BAD_REQUEST,
       );
     const propertyValue = await this.propertyService.calculatePropertyValue(
